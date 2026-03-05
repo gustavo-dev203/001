@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link
-href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
-rel='stylesheet'> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
     <link rel="stylesheet" href="/static/loginpage.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
@@ -13,7 +11,10 @@ rel='stylesheet'>
     <main class="container">
         <form action="/login" method="post">
             
-            <img src="/static/Logoigreja.png" alt="LOGO">
+            <div class="header-box">
+                <h1>Login</h1>
+                <img src="/static/Logoigreja.png" alt="LOGO">
+            </div>
 
             <div class="input-box">
                 <label for="email"></label>
@@ -22,9 +23,9 @@ rel='stylesheet'>
             </div>
 
             <div class="input-box">
-            <label for="password"></label>
-            <input type="password" name="senha" id="senha_usuario" placeholder="Senha">
-            <i class="bx bxs-lock-alt"></i>
+                <label for="password"></label>
+                <input type="password" name="senha" id="senha_usuario" placeholder="Senha">
+                <i class="bx bxs-lock-alt"></i>
             </div>
 
             <div class="remember-forgot">
@@ -35,7 +36,7 @@ rel='stylesheet'>
                 <a href="#">Esqueci a senha</a>
             </div>
 
-            <button type= "submit" class="login">Login</button>
+            <button type="submit" class="login">Login</button>
 
             <div class="register-link">
                 <p>Não tem conta? <a href="/register">Cadastre-se</a></p>

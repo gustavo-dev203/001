@@ -3,31 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/registerpage.css">
     <title>Register Page</title>
 </head>
 <body>
+    <main class="container">
         <form action="/register" method="post">
+            
+            <div class="header-box">
+                <h1>Cadastro</h1>
+                <img src="/static/Logoigreja.png" alt="LOGO">
+            </div>
 
-        <label for="nome">Nome Completo:</label>
-        <input type="text" name="nome" id="nome_usuario">
+            <div class="input-box">
+                <input type="text" name="nome" id="nome_usuario" placeholder="Nome Completo" required>
+                <i class="bx bxs-user"></i> 
+            </div>
 
-        <br><br>
+            <div class="input-box">
+                <input type="email" name="email" id="email_usuario" placeholder="Email" required>
+                <i class="bx bxs-envelope"></i> 
+            </div>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email_usuario">
+            <div class="input-box">
+                <input type="password" name="senha" id="senha_usuario" placeholder="Senha" required>
+                <i class="bx bxs-lock-alt"></i>
+            </div>
 
-        <br><br>
+            <button type="submit" class="btn-register">Enviar</button>
 
-        <label for="password">Senha:</label>
-        <input type="password" name="senha" id="senha_usuario">
-
-        <br><br>
-
-        <button type= "submit">Enviar</button>
-
-        <br><br>
-
-        <p>Já tem conta? <a href="/login">Faça login</a></p>
-    </form>
+            <div class="login-link">
+                <p>Já tem conta? <a href="/login">Faça login</a></p>
+            </div>
+        </form>
+    </main>
 </body>
 </html>
