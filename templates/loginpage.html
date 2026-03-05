@@ -2,29 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link
+href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+rel='stylesheet'> 
+    <link rel="stylesheet" href="/static/loginpage.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
 </head>
 <body>
-    <form action="/login" method="post">
+    <main class="container">
+        <form action="/login" method="post">
+            
+            <img src="/static/Logoigreja.png" alt="LOGO">
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email_usuario">
+            <div class="input-box">
+                <label for="email"></label>
+                <input type="email" name="email" id="email_usuario" placeholder="Usuário">
+                <i class="bx bxs-user"></i> 
+            </div>
 
-        <br><br>
+            <div class="input-box">
+            <label for="password"></label>
+            <input type="password" name="senha" id="senha_usuario" placeholder="Senha">
+            <i class="bx bxs-lock-alt"></i>
+            </div>
 
-        <label for="password">Senha:</label>
-        <input type="password" name="senha" id="senha_usuario">
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox">
+                    Lembrar senha
+                </label>
+                <a href="#">Esqueci a senha</a>
+            </div>
 
-        <br><br>
+            <button type= "submit" class="login">Login</button>
 
-        <button type= "submit">Enviar</button>
+            <div class="register-link">
+                <p>Não tem conta? <a href="/register">Cadastre-se</a></p>
+            </div>
 
-
-        <br><br>
-
-        <p>Não tem conta? <a href="/register">Cadastre-se</a></p>
-
-    </form>
+        </form>
+    </main>
 </body>
 </html>
