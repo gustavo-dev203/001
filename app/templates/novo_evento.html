@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Novo Evento</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+
+    <h2>Criar Novo Evento na Igreja</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div style="background-color: #ffcccc; color: #cc0000; padding: 10px; margin-bottom: 15px; border-radius: 5px; max-width: 300px;">
+                {% for message in messages %}
+                    <p style="margin: 0;">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <form action="/novo_evento" method="POST" style="display: flex; flex-direction: column; max-width: 300px; gap: 10px;">
+        
+        <label>Título do Evento:</label>
+        <input type="text" name="titulo" placeholder="Ex: Culto de Jovens" required>
+
+        <label>Data:</label>
+        <input type="date" name="data" min="{{ data_hoje }}" required>
+
+        <label>Hora:</label>
+        <input type="time" name="hora" required>
+
+        <label>Descrição (Opcional):</label>
+        <textarea name="descricao" rows="4" placeholder="Detalhes do evento..."></textarea>
+
+        <button type="submit" style="padding: 10px; background-color: #000; color: #fff; border: none; cursor: pointer;">Salvar Evento</button>
+    </form>
+
+    <br>
+    <a href="/">Voltar para a página inicial</a>
+
+</body>
+</html>

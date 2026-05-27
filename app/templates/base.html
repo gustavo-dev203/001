@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema IPB - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='loginpage.css') }}">
+    <style>
+        .content-wrapper { padding: 30px; max-width: 1200px; margin: auto; }
+        nav { background: #000; padding: 10px 30px; display: flex; justify-content: space-between; align-items: center; }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: 500; font-family: "Poppins", sans-serif;}
+        nav a:hover { color: #ccc; }
+        .logo-nav { height: 40px; }
+        .nav-links { display: flex; align-items: center; }
+    </style>
+</head>
+<body style="background-color: #f0f0f0; margin: 0; font-family: 'Poppins', sans-serif;">
+    <nav>
+        <div>
+            <a href="/"><img src="{{ url_for('static', filename='Logoigreja.png') }}" class="logo-nav" alt="Logo IPB"></a>
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('home.homepage') }}">Início</a>
+            
+            {% if session.get('usuario_logado_id') %}
+                <a href="{{ url_for('sociedades.listar_sociedades') }}">Sociedades</a>
+                <a href="/admin" style="color: #4CAF50;">Painel Pastor</a>
+                <a href="/logout" style="color: #ff4d4d; margin-left: 30px;">Sair</a>
+            {% else %}
+                <a href="/login" style="border: 1px solid white; padding: 5px 15px; border-radius: 20px;">Entrar</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div style="background-color: #ffeb3b; padding: 10px; margin-bottom: 20px; border-radius: 5px; text-align: center; color: #000;">
+                    {% for message in messages %}
+                        <strong>{{ message }}</strong><br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

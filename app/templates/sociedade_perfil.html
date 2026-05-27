@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Membros - {{ sociedade.sigla }}{% endblock %}
+
+{% block content %}
+<div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <h1 style="color: #1a472a;">{{ sociedade.nome }} ({{ sociedade.sigla }})</h1>
+    <p>Líder Responsável: <strong>{{ sociedade.conselheiro.nome if sociedade.conselheiro else 'Sem conselheiro' }}</strong></p>
+    
+    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+    <h3>Lista de Chamada</h3>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <thead style="background: #f8f9fa;">
+            <tr>
+                <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Membro</th>
+                <th style="padding: 12px; text-align: center; border-bottom: 2px solid #dee2e6;">Presença</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for membro in membros %}
+            <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">{{ membro.nome }}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee; text-align: center;">
+                    <input type="checkbox" style="transform: scale(1.5);">
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button style="margin-top: 20px; padding: 10px 25px; background: #1a472a; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Salvar Presenças
+    </button>
+</div>
+{% endblock %}

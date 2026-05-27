@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h1 style="color: #1a472a;">Próximos Eventos da Igreja</h1>
+    
+    {% if session.get('usuario_logado_id') %}
+        <a href="/novo_evento" style="padding: 10px 20px; background-color: #1a472a; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">+ Novo Evento</a>
+    {% endif %}
+</div>
+
+<hr style="border: 0; border-top: 1px solid #ccc; margin-bottom: 30px;">
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+    {% for evento in eventos %}
+        <div style="border-radius: 10px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; border-top: 5px solid #1a472a;">
+            <h3 style="margin-top: 0; color: #333;">{{ evento.titulo }}</h3>
+            <p style="color: #666; font-size: 0.9em;">
+                <strong>Data:</strong> {{ evento.data }} às {{ evento.hora }}
+            </p>
+            {% if evento.descricao %}
+                <p style="margin-top: 15px; color: #444;">{{ evento.descricao }}</p>
+            {% endif %}
+        </div>
+    {% else %}
+        <p style="color: #666; font-style: italic;">Nenhum evento agendado para os próximos dias.</p>
+    {% endfor %}
+</div>
+{% endblock %}
